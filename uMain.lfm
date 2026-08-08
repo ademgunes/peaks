@@ -1,0 +1,237 @@
+object frmMain: TfrmMain
+  Left = 391
+  Height = 779
+  Top = 174
+  Width = 870
+  BorderIcons = [biSystemMenu, biMaximize]
+  Caption = 'Peaks and Valleys'
+  ClientHeight = 779
+  ClientWidth = 870
+  Color = 16768959
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  KeyPreview = True
+  Position = poScreenCenter
+  LCLVersion = '4.8.0.0'
+  OnCreate = FormCreate
+  OnDblClick = FormDblClick
+  OnKeyUp = FormKeyUp
+  object PageControl1: TPageControl
+    Left = 10
+    Height = 591
+    Top = 140
+    Width = 826
+    ActivePage = TabSheet2
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    Style = tsButtons
+    TabIndex = 1
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Graphics'
+      ClientHeight = 561
+      ClientWidth = 816
+      object Chart1: TChart
+        Left = 13
+        Height = 535
+        Top = 17
+        Width = 795
+        AxisList = <        
+          item
+            Marks.LabelBrush.Style = bsClear
+            Minors = <>
+            Title.LabelFont.Orientation = 900
+            Title.LabelBrush.Style = bsClear
+          end        
+          item
+            Alignment = calBottom
+            Marks.LabelBrush.Style = bsClear
+            Minors = <>
+            Title.LabelBrush.Style = bsClear
+          end>
+        Title.Text.Strings = (
+          'TAChart'
+        )
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        object Series1: TLineSeries
+        end
+        object Series2: TLineSeries
+          LinePen.Color = clMedGray
+          LineType = ltNone
+          Pointer.HorizSize = 5
+          Pointer.Style = psCircle
+          Pointer.VertSize = 5
+          Pointer.Visible = True
+          ShowPoints = True
+        end
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Values'
+      ClientHeight = 561
+      ClientWidth = 816
+      ImageIndex = 1
+      object memoArrayFull: TMemo
+        Left = 10
+        Height = 528
+        Top = 15
+        Width = 305
+        Anchors = [akTop, akLeft, akBottom]
+        Font.CharSet = TURKISH_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Courier'
+        ParentFont = False
+        ReadOnly = True
+        ScrollBars = ssBoth
+        TabOrder = 0
+      end
+      object memoArrayMinMax: TMemo
+        Left = 326
+        Height = 517
+        Top = 18
+        Width = 310
+        Lines.Strings = (
+          'memoArrayMinMax'
+        )
+        TabOrder = 1
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 10
+    Height = 111
+    Top = 15
+    Width = 826
+    BevelInner = bvLowered
+    ClientHeight = 111
+    ClientWidth = 826
+    ParentBackground = False
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 169
+      Height = 16
+      Top = 65
+      Width = 27
+      Caption = 'Delta'
+    end
+    object Label2: TLabel
+      Left = 139
+      Height = 32
+      Top = 23
+      Width = 57
+      Alignment = taRightJustify
+      Caption = 'Number of'#13#10'Samples'
+    end
+    object seDelta: TSpinEdit
+      Left = 210
+      Height = 28
+      Top = 58
+      Width = 56
+      MaxValue = 1000
+      MinValue = 1
+      TabOrder = 0
+      Value = 20
+      OnChange = seDeltaChange
+    end
+    object cmdGo: TButton
+      Cursor = crHandPoint
+      Left = 23
+      Height = 61
+      Top = 23
+      Width = 100
+      Caption = 'Go'
+      Font.Color = clRed
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = cmdGoClick
+    end
+    object radioRandSeed: TRadioGroup
+      Left = 445
+      Height = 85
+      Top = 15
+      Width = 222
+      AutoFill = True
+      Caption = 'RandSeed'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 68
+      ClientWidth = 220
+      ItemIndex = 0
+      Items.Strings = (
+        'User defined'
+        'Randomize'
+      )
+      ParentBackground = False
+      TabOrder = 2
+      OnClick = radioRandSeedClick
+    end
+    object seNPoints: TSpinEdit
+      Left = 208
+      Height = 28
+      Top = 23
+      Width = 56
+      MaxValue = 1000
+      MinValue = 3
+      TabOrder = 3
+      Value = 50
+      OnChange = seNPointsChange
+    end
+    object txtSeed: TComboBox
+      Left = 561
+      Height = 28
+      Top = 33
+      Width = 106
+      ItemHeight = 0
+      TabOrder = 4
+      OnChange = txtSeedChange
+      OnKeyPress = txtSeedKeyPress
+    end
+    object seRange: TSpinEdit
+      Left = 340
+      Height = 28
+      Top = 25
+      Width = 70
+      MaxValue = 1000
+      MinValue = 1
+      TabOrder = 5
+      Value = 100
+      OnChange = seNPointsChange
+    end
+    object Label3: TLabel
+      Left = 286
+      Height = 16
+      Top = 33
+      Width = 33
+      Caption = 'Range'
+    end
+    object chkLookForMax: TCheckBox
+      Left = 686
+      Height = 23
+      Top = 20
+      Width = 110
+      Caption = 'chkLookForMax'
+      Checked = True
+      State = cbChecked
+      TabOrder = 6
+      OnChange = chkLookForMaxChange
+    end
+    object chkReverseScan: TCheckBox
+      Left = 687
+      Height = 23
+      Top = 45
+      Width = 109
+      Caption = 'chkReverseScan'
+      TabOrder = 7
+      OnChange = chkReverseScanChange
+    end
+  end
+end
